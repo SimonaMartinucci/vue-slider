@@ -43,6 +43,10 @@ createApp({
             if(this.activeImg < 0) {
                 this.activeImg = this.slides.length -1;
             }
+        },
+
+        clickImg(index) {
+            this.activeImg = index;
         }
     }
 }).mount('#app');
