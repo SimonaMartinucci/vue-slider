@@ -4,6 +4,8 @@ createApp({
     data() {
         return {
             activeImg: 0,
+            startAuto: '',
+            startReverse: '',
             slides: [
                     {
                     image: 'img/01.webp',
@@ -46,7 +48,23 @@ createApp({
         },
 
         clickImg(index) {
+            this.stop();
             this.activeImg = index;
+        },
+
+        start() {
+            this.stop();
+            this.startAuto = setInterval(this.nextButton, 1500);
+        },
+
+        reverse() {
+            this.stop();
+            this.startReverse = setInterval(this.prevButton, 1500);
+        },
+
+        stop() {
+            clearInterval(this.startAuto);
+            clearInterval(this.startReverse);
         }
     }
 }).mount('#app');
